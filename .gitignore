@@ -1,0 +1,14 @@
+*.img
+*.img.*
+*.zip
+*.tar
+*.tar.md5
+*.lz4
+*.xz
+*.deb
+backup-efs/
+firmware-stock/
+keys/
+out/
+logs/
+downloads/

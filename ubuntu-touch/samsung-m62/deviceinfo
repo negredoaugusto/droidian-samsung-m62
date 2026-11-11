@@ -1,0 +1,33 @@
+# Ubuntu Touch / Halium 13 — Samsung Galaxy M62 (SM-M625F), codinome LineageOS: f62
+deviceinfo_name="Samsung Galaxy M62"
+deviceinfo_manufacturer="Samsung"
+deviceinfo_codename="f62"
+deviceinfo_arch="aarch64"
+deviceinfo_kernel_arch="arm64"
+deviceinfo_halium_version="13"
+deviceinfo_ubuntu_touch_release="24.04-2.x"
+
+# Kernel: LineageOS android_kernel_samsung_exynos9820 + ubuntu-touch/halium.config (build local)
+deviceinfo_kernel_source="https://github.com/LineageOS/android_kernel_samsung_exynos9820"
+deviceinfo_kernel_defconfig="exynos9820-f62_defconfig"
+deviceinfo_kernel_cmdline="buildvariant=userdebug"
+deviceinfo_kernel_image_name="Image"
+
+# Boot image (valores lidos do boot.img LineageOS 23.2 f62)
+deviceinfo_bootimg_header_version="2"
+deviceinfo_flash_pagesize="2048"
+deviceinfo_flash_offset_base="0x10000000"
+deviceinfo_flash_offset_kernel="0x00008000"
+deviceinfo_flash_offset_ramdisk="0x01000000"
+deviceinfo_flash_offset_second="0x00000000"
+deviceinfo_flash_offset_tags="0x00000100"
+deviceinfo_flash_offset_dtb="0x01f00000"
+deviceinfo_bootimg_os_version="13"
+deviceinfo_bootimg_os_patch_level="2024-11"
+deviceinfo_bootimg_partition_size="61865984"
+deviceinfo_bootimg_prebuilt_dtb="f62.dtb"
+
+# Rootfs na partição lógica system (5,47 GB disponíveis no super)
+deviceinfo_rootfs_image_sector_size="4096"
+deviceinfo_system_partition_size="4608M"
+deviceinfo_use_overlaystore="true"

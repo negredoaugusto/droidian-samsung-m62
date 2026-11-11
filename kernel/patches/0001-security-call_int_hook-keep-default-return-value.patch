@@ -1,0 +1,25 @@
+diff --git a/security/security.c b/security/security.c
+index 2499c2bad..789890efa 100644
+--- a/security/security.c
++++ b/security/security.c
+@@ -213,10 +213,16 @@ EXPORT_SYMBOL(unregister_lsm_notifier);
+ 	int RC = IRC;						\
+ 	do {							\
+ 		struct security_hook_list *P;			\
+-								\
+-		RC = security_integrity_current();		\
+-		if (RC != 0)							\
+-			break;								\
++		/* Ubuntu Touch/Halium: não sobrescrever o valor	\
++		 * padrão (IRC) quando a verificação de integridade	\
++		 * passa — sem nenhum hook registrado (ex.: AppArmor	\
++		 * sem secid_to_secctx) o resultado deve ser IRC,	\
++		 * como no Linux upstream, e não 0. */		\
++		int __integrity_rc = security_integrity_current(); \
++		if (__integrity_rc != 0) {				\
++			RC = __integrity_rc;				\
++			break;						\
++		}							\
+ 		list_for_each_entry(P, &security_hook_heads.FUNC, list) { \
+ 			RC = P->hook.FUNC(__VA_ARGS__);		\
+ 			if (RC != 0)				\
